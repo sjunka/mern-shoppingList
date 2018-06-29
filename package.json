@@ -1,0 +1,28 @@
+{
+  "name": "mern-shoppinglist",
+  "version": "1.0.0",
+  "description": "Shopping list made in the MERN stack \"Mongo Express React Node\"",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "keywords": [
+    "MERN",
+    "React",
+    "Node",
+    "Mongo",
+    "Express"
+  ],
+  "author": "Sergio Junca",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^3.6.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}
