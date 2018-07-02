@@ -1,22 +1,25 @@
+// imports for react
 import React, { Component } from "react";
 import { Container, ListGroup, ListGroupItem, Button } from "reactstrap";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import uuid from "uuid";
-import { TLSSocket } from "tls";
+import PropTypes from "prop-types";
+
+// imports for redux
+import { connect } from "react-redux"; // connects react and react-redux
+
+// import custom reducers
+import  getItems   from "../reducers/itemReducer";
 
 class ShopingList extends Component {
-    state = {
-        items: [
-            { id: uuid(), name: "Eggs" },
-            { id: uuid(), name: "Milk" },
-            { id: uuid(), name: "Sugar" },
-            { id: uuid(), name: "Ham" },
-            { id: uuid(), name: "Apples" },
-            { id: uuid(), name: "Tomato" },
-        ]
-    };
+
+    componentDidMount = () => {
+      this.props.getItems()
+    }
+    
     render() {
-        const { items } = this.state;
+
+        const { items } = this.props.item;
         return (
             <Container>
                 <Button
@@ -66,4 +69,17 @@ class ShopingList extends Component {
         );
     }
 }
-export default ShopingList;
+
+ShopingList.propTypes = {
+    getItems: PropTypes.func.isRequired,
+    item: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    item: state.item
+});
+
+export default connect(
+    mapStateToProps,
+    { getItems }
+)(ShopingList);
