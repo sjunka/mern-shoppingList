@@ -6,10 +6,10 @@ import uuid from "uuid";
 import PropTypes from "prop-types";
 
 // imports for redux
-import { connect } from "react-redux"; // connects react and react-redux
+import { connect } from "react-redux"; // connects react and react-redux {gets state from redux into component}
 
 // import custom reducers
-import  getItems   from "../reducers/itemReducer";
+import  { getItems }   from "../actions/itemActions";
 
 class ShopingList extends Component {
 
@@ -17,7 +17,7 @@ class ShopingList extends Component {
       this.props.getItems()
     }
     
-    render() {
+    render() { 
 
         const { items } = this.props.item;
         return (
