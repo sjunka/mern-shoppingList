@@ -18,7 +18,6 @@ import { connect } from "react-redux";
 
 // import custom actions
 import { addItem } from "../actions/itemActions";
-import uuid from "uuid";
 
 class ItemModal extends Component {
     state = {
@@ -38,8 +37,8 @@ class ItemModal extends Component {
 
     onSubmit = e => {
         e.preventDefault();
+
         const newItem = {
-            id: uuid(),
             name: this.state.name
         };
 
